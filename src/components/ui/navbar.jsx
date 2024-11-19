@@ -136,7 +136,7 @@ export default function Navbar() {
             Nosotros
           </Link>
           <Link
-            href="/#el-lugar"
+            href="/lugar"
             className="text-sm font-semibold leading-6 text-white text-transform: uppercase"
           >
             El lugar
@@ -210,24 +210,24 @@ export default function Navbar() {
                     </>
                   )}
                 </Disclosure>
-                <a
+                <Link
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Nosotros
-                </a>
-                <a
-                  href="#"
+                </Link>
+                <Link
+                  href="/lugar"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   El lugar
-                </a>
-                <a
-                  href="#"
+                </Link>
+                <Link
+                  href="/contacto"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Contacto
-                </a>
+                </Link>
               </div>
             </div>
           </div>

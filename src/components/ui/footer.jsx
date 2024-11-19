@@ -33,11 +33,11 @@ export default function Footer() {
             </nav>
             
             <div className="flex justify-center gap-8 mb-8">
-              <Link href="#" className="hover:text-gray-300 transition-colors">
+              <Link href="https://www.facebook.com/profile.php?id=61568303840830" className="hover:text-gray-300 transition-colors">
                 <FaFacebookF className="h-6 w-6" />
                 <span className="sr-only">Facebook</span>
               </Link>
-              <Link href="#" className="hover:text-gray-300 transition-colors">
+              <Link href="https://www.instagram.com/amparodelsol.cabanas/" className="hover:text-gray-300 transition-colors">
                 <FaInstagram className="h-6 w-6" />
                 <span className="sr-only">Instagram</span>
               </Link>

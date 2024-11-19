@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Raleway, Marcellus, Lato } from "next/font/google";
 import "./globals.css";
+import SocialMediaButtons from '@/components/ui/social-media-buttons'
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -55,6 +56,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${nourd.variable} ${raleway.variable} ${marcellus.variable} ${lato.variable} antialiased`}
       >
         {children}
+        <SocialMediaButtons/>
       </body>
     </html>
   );
