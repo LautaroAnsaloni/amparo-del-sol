@@ -3,8 +3,10 @@
 import { useState, useEffect } from "react";
 import ServiciosIncluidos from "../components/ui/cabin-amenities";
 import Footer from "../components/ui/footer";
-import Image from "next/image";
 import Navbar from '@/components/ui/navbar'
+import CabinCarousel from '@/components/CabinCarousel'
+import HouseCarousel from '@/components/HouseCarousel'
+import FormularioContacto from "@/components/FormularioContacto";
 
 const rollingTexts = [
   "Experiencia única en la naturaleza",
@@ -32,7 +34,7 @@ export default function Home() {
   }, []);
 
   return (
-      <main className="flex-grow">
+      <main className="flex-grow overflow-x-hidden">
     <div className="flex flex-col min-h-screen font-lato">
       <Navbar/>
       <section
@@ -81,31 +83,11 @@ export default function Home() {
 
         <section id="cabanas-2-4" className="py-16 bg-[#eed9c4]">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-8 font-marcellus text-center">
+            <h2 className="text-3xl font-bold mb-8 font-marcellus text-center text-transform: uppercase">
               Cabañas para 2 a 4 personas
             </h2>
-            <div className="grid mx-8 grid-cols-1 md:grid-cols-3 gap-4">
-              <Image
-                src="/IMG_5956.jpg"
-                width={400}
-                height={300}
-                alt="Cabaña 2-4 personas 1"
-                className="w-full h-auto rounded-lg"
-              />
-              <Image
-                src="/IMG_5958.jpg"
-                width={400}
-                height={300}
-                alt="Cabaña 2-4 personas 2"
-                className="w-full h-auto rounded-lg"
-              />
-              <Image
-                src="/IMG_5962.jpg"
-                width={400}
-                height={300}
-                alt="Cabaña 2-4 personas 3"
-                className="w-full h-auto rounded-lg"
-              />
+            <div className="grid mx-8">
+            <CabinCarousel/>
             </div>
             <ServiciosIncluidos />
           </div>
@@ -113,37 +95,19 @@ export default function Home() {
 
         <section id="cabanas-6-10" className="py-16 bg-[#264653] text-white">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-8 font-marcellus text-center">
-              Cabañas para 6 a 10 personas
+            <h2 className="text-3xl font-bold mb-8 font-marcellus text-center text-transform: uppercase">
+              Casa para 6 a 10 personas
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <Image
-                src="/placeholder.svg?height=300&width=400"
-                width={400}
-                height={300}
-                alt="Cabaña 6-10 personas 1"
-                className="w-full h-auto rounded-lg"
-              />
-              <Image
-                src="/placeholder.svg?height=300&width=400"
-                width={400}
-                height={300}
-                alt="Cabaña 6-10 personas 2"
-                className="w-full h-auto rounded-lg"
-              />
-              <Image
-                src="/placeholder.svg?height=300&width=400"
-                width={400}
-                height={300}
-                alt="Cabaña 6-10 personas 3"
-                className="w-full h-auto rounded-lg"
-              />
+            <div className="grid mx-8">
+              <HouseCarousel/>
             </div>
+            <div className="max-w-6xl mx-auto mt-14 px-4 py-8">
             <p className="text-lg mt-8 text-center">
-              Espaciosas cabañas ideales para grupos grandes o familias
+              Casa espaciosa para grupos grandes o familias
               numerosas. Disfruta de amplios espacios comunes y todas las
               comodidades para una experiencia grupal única.
             </p>
+            </div>
           </div>
         </section>
 
@@ -174,43 +138,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        <section id="el-lugar" className="py-16 bg-[#264653] text-white">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold mb-8 font-marcellus text-center">
-              El Lugar
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-              <Image
-                src="/placeholder.svg?height=300&width=400"
-                width={400}
-                height={300}
-                alt="El Lugar 1"
-                className="w-full h-auto rounded-lg"
-              />
-              <Image
-                src="/placeholder.svg?height=300&width=400"
-                width={400}
-                height={300}
-                alt="El Lugar 2"
-                className="w-full h-auto rounded-lg"
-              />
-              <Image
-                src="/placeholder.svg?height=300&width=400"
-                width={400}
-                height={300}
-                alt="El Lugar 3"
-                className="w-full h-auto rounded-lg"
-              />
-            </div>
-            <p className="text-lg text-center">
-              Ubicado en un entorno natural privilegiado, Las Terrazas ofrece
-              vistas panorámicas, senderos para caminatas y la tranquilidad que
-              buscas para desconectar de la rutina.
-            </p>
-          </div>
-        </section>
-
         <section id="contacto" className="py-16 bg-[#eed9c4]">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold mb-8 font-marcellus text-center">
@@ -221,6 +148,7 @@ export default function Home() {
               contactarnos para más información o para hacer tu reserva.
             </p>
           </div>
+          <FormularioContacto/>
         </section>
 
         <section id="ubicacion" className="py-16 bg-[#264653] text-white">

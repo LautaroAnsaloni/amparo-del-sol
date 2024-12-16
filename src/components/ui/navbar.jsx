@@ -31,7 +31,7 @@ const cabanas = [
   },
 ];
 const callsToAction = [
-  { name: "Conoce el lugar", href: "#", icon: PlayCircleIcon },
+  { name: "Conoce el lugar", href: "/lugar", icon: PlayCircleIcon },
   { name: "Escribinos", href: "/contacto", icon: EnvelopeIcon },
 ];
 
@@ -39,7 +39,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-black">
+    <header className="bg-stone-900">
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"
@@ -84,7 +84,7 @@ export default function Navbar() {
               leaveFrom="opacity-100 translate-y-0"
               leaveTo="opacity-0 translate-y-1"
             >
-              <Popover.Panel className="absolute -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
+              <Popover.Panel className="absolute -left-8 top-full z-30 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5">
                 <div className="p-4">
                   {cabanas.map((item) => (
                     <div

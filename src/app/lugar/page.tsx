@@ -50,9 +50,6 @@ export default function ElLugar() {
             Tu navegador no soporta el elemento de video.
           </video>
         )}
-        <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-4xl md:text-6xl font-bold text-white text-center shadow-text">
-          Los Reyunos, San Rafael
-        </h1>
       </section>
 
       <section className="max-w-4xl mx-auto px-4 py-12">

@@ -19,8 +19,8 @@ const ServiciosIncluidos: React.FC = () => {
   ];
 
   return (
-    <section className="max-w-6xl mx-auto px-4 py-8">
-      <p className="text-lg text-center mb-12">
+    <section className="max-w-6xl m-auto px-4 py-8">
+      <p className="text-lg text-center py-8 my-12">
         Desubrí nuestras encantadoras cabañas, ideales para parejas y pequeñas
         familias.
         <br /> Cuentan con todas las comodidades necesarias para una estadía
