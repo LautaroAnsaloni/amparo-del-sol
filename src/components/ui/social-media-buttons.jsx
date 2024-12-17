@@ -1,11 +1,15 @@
 import Link from 'next/link'
 import { IoLogoInstagram, IoLogoWhatsapp } from "react-icons/io";
 
+const mensaje = encodeURIComponent("Hola, quiero hacer una consulta sobre las Cabañas Amparo del Sol");
+const enlaceWhatsApp = `https://wa.me/+542302304347?text=${mensaje}`;
+
+
 export default function SocialMediaButtons() {
   return (
     <div className="fixed bottom-4 right-4 flex flex-col space-y-4 z-50">
       <Link
-        href="https://wa.me/tunumerodewhatsapp"
+        href={enlaceWhatsApp}
         target="_blank"
         rel="noopener noreferrer"
         className="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition-colors duration-300"
