@@ -64,8 +64,8 @@ export default function FormularioContacto() {
       <div className="container mx-auto p-4">
         <Card className="w-full max-w-2xl mx-auto">
           <CardHeader>
-            <CardTitle>Contáctanos</CardTitle>
-            <CardDescription>Completa el formulario y nos pondremos en contacto contigo pronto.</CardDescription>
+            <CardTitle>Contactanos</CardTitle>
+            <CardDescription>Completa el formulario y nos pondremos en contacto pronto.</CardDescription>
           </CardHeader>
           <CardContent>
             <Form {...form}>

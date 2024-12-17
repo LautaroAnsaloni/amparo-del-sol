@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Navbar from '@/components/ui/navbar'
+import Footer from '@/components/ui/footer'
 
 export default function ElLugar() {
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -26,7 +27,7 @@ export default function ElLugar() {
   }, [])
 
   return (
-    <main className="flex flex-col items-center">
+    <main className="flex flex-col items-center bg-[#eed9c4]">
       <section className="w-full relative">
       <Navbar/>
         {isMobile ? (
@@ -66,7 +67,7 @@ export default function ElLugar() {
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl font-semibold mb-6">Club Náutico Los Reyunos</h2>
           <p className="mb-4">
-            A 11 Km de la presa por camino consolidado se llega a el Club Náutico Los Reyunos, rodeado de blancas casas de fin de semana que descienden desde la montaña hasta orillas del lago. Aquí podrás disfrutar de:
+            A 11 Km de la presa por camino consolidado se llega a el Club Náutico Los Reyunos, rodeado de casas de fin de semana que descienden desde la montaña hasta orillas del lago. Aquí podrás disfrutar de:
           </p>
           <ul className="list-disc pl-6 mb-4">
             <li>Restaurantes</li>
@@ -111,6 +112,7 @@ export default function ElLugar() {
           </div>
         </div>
       </section>
+      <Footer/>
     </main>
   )
 }
