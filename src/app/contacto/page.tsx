@@ -7,7 +7,9 @@ export default function ContactPage() {
       <div className="flex flex-col min-h-screen font-lato">
     <main>
       <Navbar/>
-      <FormularioContacto />
+      <div className="my-10">
+      <FormularioContacto/>
+      </div>
       <Footer/>
     </main>
       </div>
