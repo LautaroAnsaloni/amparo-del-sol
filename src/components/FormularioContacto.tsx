@@ -1,18 +1,31 @@
-'use client'
+"use client";
 
-
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import * as z from 'zod'
-import { enviarFormulario } from '@/app/actions'
-import { Button } from "@/components/ui/button"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { MapPin, Mail, Phone } from 'lucide-react'
-import { useToast } from "@/hooks/use-toast"
-import { Toaster } from "@/components/ui/toaster"
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import * as z from "zod";
+import { enviarFormulario } from "@/app/actions";
+import { Button } from "@/components/ui/button";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { MapPin, Mail, Phone } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import { Toaster } from "@/components/ui/toaster";
 
 const formSchema = z.object({
   nombre: z.string().min(2, {
@@ -27,10 +40,15 @@ const formSchema = z.object({
   mensaje: z.string().min(10, {
     message: "El mensaje debe tener al menos 10 caracteres.",
   }),
-})
+});
+
+const mensaje = encodeURIComponent(
+  "Hola, quiero hacer una consulta sobre las Cabañas Amparo del Sol"
+);
+const enlaceWhatsApp = `https://wa.me/+542302304347?text=${mensaje}`;
 
 export default function FormularioContacto() {
-  const { toast } = useToast()
+  const { toast } = useToast();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -40,24 +58,24 @@ export default function FormularioContacto() {
       celular: "",
       mensaje: "",
     },
-  })
+  });
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
-    const result = await enviarFormulario(data)
+    const result = await enviarFormulario(data);
     if (result.success) {
       toast({
         title: "Éxito",
         description: result.message,
-      })
-      form.reset()
+      });
+      form.reset();
     } else {
       toast({
         title: "Error",
         description: result.message,
         variant: "destructive",
-      })
+      });
     }
-  }
+  };
 
   return (
     <>
@@ -65,11 +83,16 @@ export default function FormularioContacto() {
         <Card className="w-full max-w-2xl mx-auto">
           <CardHeader>
             <CardTitle>Contactanos</CardTitle>
-            <CardDescription>Completa el formulario y nos pondremos en contacto pronto.</CardDescription>
+            <CardDescription>
+              Completa el formulario y nos pondremos en contacto pronto.
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-8"
+              >
                 <FormField
                   control={form.control}
                   name="nombre"
@@ -123,7 +146,9 @@ export default function FormularioContacto() {
                   )}
                 />
                 <Button type="submit" disabled={form.formState.isSubmitting}>
-                  {form.formState.isSubmitting ? 'Enviando...' : 'Enviar mensaje'}
+                  {form.formState.isSubmitting
+                    ? "Enviando..."
+                    : "Enviar mensaje"}
                 </Button>
               </form>
             </Form>
@@ -131,20 +156,33 @@ export default function FormularioContacto() {
           <CardFooter className="flex flex-col items-start space-y-4">
             <div className="flex items-center space-x-2">
               <MapPin className="h-5 w-5 text-muted-foreground" />
-              <a href="https://maps.app.goo.gl/zQZWyK8Bx76ddSCK6" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-               Club de Náutica y Pesca Los Reyunos, San Rafael, Mendoza
+              <a
+                href="https://maps.app.goo.gl/zQZWyK8Bx76ddSCK6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline"
+              >
+                Club de Náutica y Pesca Los Reyunos, San Rafael, Mendoza
               </a>
             </div>
             <div className="flex items-center space-x-2">
               <Mail className="h-5 w-5 text-muted-foreground" />
-              <a href="mailto:info@amparodelsol.com.ar" className="text-primary hover:underline">
-              info@amparodelsol.com.ar
+              <a
+                href="mailto:info@amparodelsol.com.ar"
+                className="text-primary hover:underline"
+              >
+                info@amparodelsol.com.ar
               </a>
             </div>
             <div className="flex items-center space-x-2">
               <Phone className="h-5 w-5 text-muted-foreground" />
-              <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                +1 (234) 567-890
+              <a
+                href={enlaceWhatsApp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline"
+              >
+                (+54) 2302 - 304347
               </a>
             </div>
           </CardFooter>
@@ -152,5 +190,5 @@ export default function FormularioContacto() {
       </div>
       <Toaster />
     </>
-  )
+  );
 }
