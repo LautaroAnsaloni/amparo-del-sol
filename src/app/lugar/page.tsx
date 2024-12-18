@@ -28,7 +28,7 @@ export default function ElLugar() {
 
   return (
     <main className="flex flex-col items-center bg-[#eed9c4]">
-      <section className="w-full relative">
+      <section className="w-full relative font-lato">
       <Navbar/>
         {isMobile ? (
           <Image
