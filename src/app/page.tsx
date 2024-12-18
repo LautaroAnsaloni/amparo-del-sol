@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import ServiciosIncluidos from "../components/ui/cabin-amenities";
 import Footer from "../components/ui/footer";
-import Navbar from '@/components/ui/navbar'
-import CabinCarousel from '@/components/CabinCarousel'
-import HouseCarousel from '@/components/HouseCarousel'
+import Navbar from "@/components/ui/navbar";
+import CabinCarousel from "@/components/CabinCarousel";
+import HouseCarousel from "@/components/HouseCarousel";
 import FormularioContacto from "@/components/FormularioContacto";
 
 const rollingTexts = [
@@ -34,52 +35,53 @@ export default function Home() {
   }, []);
 
   return (
-      <main className="flex-grow overflow-x-hidden">
-    <div className="flex flex-col min-h-screen font-lato">
-      <Navbar/>
-      <section
-      className="relative flex items-center justify-center overflow-hidden"
-      style={{ height: "calc(100vh - 5rem)" }}
-    >
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute w-full h-full object-cover"
-      >
-        <source src="/PanoramicaLosReyunos.mp4" type="video/mp4" />
-      </video>
-      <div className="relative z-10 text-center flex flex-col items-center">
-        <div className="relative px-4 py-2 mb-2">
-          <span className="relative z-10 text-xl md:text-2xl font-semibold text-transform: uppercase text-white">
-            Bienvenidos a
-          </span>
-          <span className="absolute inset-0 bg-black opacity-50 blur-md"></span>
-        </div>
-        <h1 className="relative px-4 py-2">
-          <span className="relative z-10 text-4xl md:text-7xl font-bold uppercase mb-4 font-nourd text-white">
-            Amparo del Sol
-          </span>
-          <span className="absolute inset-0 bg-black opacity-50 blur-md"></span>
-        </h1>
-        <div className="h-20 mb-8 relative overflow-hidden flex items-center justify-center mt-6">
-          <div
-            className={`transition-all duration-500 ease-in-out ${
-              isVisible
-                ? "opacity-100 transform translate-y-0"
-                : "opacity-0 transform -translate-y-full"
-            }`}
+    <main className="flex-grow overflow-x-hidden">
+      <SpeedInsights />
+      <div className="flex flex-col min-h-screen font-lato">
+        <Navbar />
+        <section
+          className="relative flex items-center justify-center overflow-hidden"
+          style={{ height: "calc(100vh - 5rem)" }}
+        >
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute w-full h-full object-cover"
           >
-            <p className="relative inline-block px-4 py-2">
-              <span className="relative z-10 text-xl md:text-2xl font-semibold text-white">
-                {rollingTexts[currentTextIndex]}
+            <source src="/PanoramicaLosReyunos.mp4" type="video/mp4" />
+          </video>
+          <div className="relative z-10 text-center flex flex-col items-center">
+            <div className="relative px-4 py-2 mb-2">
+              <span className="relative z-10 text-xl md:text-2xl font-semibold text-transform: uppercase text-white">
+                Bienvenidos a
               </span>
-            </p>
+              <span className="absolute inset-0 bg-black opacity-50 blur-md"></span>
+            </div>
+            <h1 className="relative px-4 py-2">
+              <span className="relative z-10 text-4xl md:text-7xl font-bold uppercase mb-4 font-nourd text-white">
+                Amparo del Sol
+              </span>
+              <span className="absolute inset-0 bg-black opacity-50 blur-md"></span>
+            </h1>
+            <div className="h-20 mb-8 relative overflow-hidden flex items-center justify-center mt-6">
+              <div
+                className={`transition-all duration-500 ease-in-out ${
+                  isVisible
+                    ? "opacity-100 transform translate-y-0"
+                    : "opacity-0 transform -translate-y-full"
+                }`}
+              >
+                <p className="relative inline-block px-4 py-2">
+                  <span className="relative z-10 text-xl md:text-2xl font-semibold text-white">
+                    {rollingTexts[currentTextIndex]}
+                  </span>
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
         <section id="cabanas-2-4" className="py-16 bg-[#eed9c4]">
           <div className="container mx-auto px-4">
@@ -87,7 +89,7 @@ export default function Home() {
               Cabañas para 2 a 4 personas
             </h2>
             <div className="grid mx-8">
-            <CabinCarousel/>
+              <CabinCarousel />
             </div>
             <ServiciosIncluidos />
           </div>
@@ -99,14 +101,14 @@ export default function Home() {
               Casa para 6 a 10 personas
             </h2>
             <div className="grid mx-8">
-              <HouseCarousel/>
+              <HouseCarousel />
             </div>
             <div className="max-w-6xl mx-auto mt-14 px-4 py-8">
-            <p className="text-lg mt-8 text-center">
-              Casa espaciosa para grupos grandes o familias
-              numerosas. Disfruta de amplios espacios comunes y todas las
-              comodidades para una experiencia grupal única.
-            </p>
+              <p className="text-lg mt-8 text-center">
+                Casa espaciosa para grupos grandes o familias numerosas.
+                Disfruta de amplios espacios comunes y todas las comodidades
+                para una experiencia grupal única.
+              </p>
             </div>
           </div>
         </section>
@@ -148,7 +150,7 @@ export default function Home() {
               contactarnos para más información o para hacer tu reserva.
             </p>
           </div>
-          <FormularioContacto/>
+          <FormularioContacto />
         </section>
 
         <section id="ubicacion" className="py-16 bg-[#264653] text-white">
@@ -172,8 +174,8 @@ export default function Home() {
             </div>
           </div>
         </section>
-      <Footer />
-    </div>
-      </main>
+        <Footer />
+      </div>
+    </main>
   );
 }
