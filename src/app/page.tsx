@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react"
 import ServiciosIncluidos from "../components/ui/cabin-amenities";
 import Footer from "../components/ui/footer";
 import Navbar from "@/components/ui/navbar";
@@ -37,6 +38,7 @@ export default function Home() {
   return (
     <main className="flex-grow overflow-x-hidden">
       <SpeedInsights />
+      <Analytics/>
       <div className="flex flex-col min-h-screen font-lato">
         <Navbar />
         <section
