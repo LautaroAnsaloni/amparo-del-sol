@@ -3,7 +3,8 @@
 import { useState, useEffect } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react"
-import ServiciosIncluidos from "../components/ui/cabin-amenities";
+import CabinAmenities from "../components/ui/cabin-amenities";
+import HouseAmenities from "../components/ui/house-amenities"
 import Footer from "../components/ui/footer";
 import Navbar from "@/components/ui/navbar";
 import CabinCarousel from "@/components/CabinCarousel";
@@ -93,7 +94,7 @@ export default function Home() {
             <div className="grid mx-8">
               <CabinCarousel />
             </div>
-            <ServiciosIncluidos />
+            <CabinAmenities />
           </div>
         </section>
 
@@ -105,13 +106,7 @@ export default function Home() {
             <div className="grid mx-8">
               <HouseCarousel />
             </div>
-            <div className="max-w-6xl mx-auto mt-14 px-4 py-8">
-              <p className="text-lg mt-8 text-center">
-                Casa espaciosa para grupos grandes o familias numerosas.
-                Disfruta de amplios espacios comunes y todas las comodidades
-                para una experiencia grupal única.
-              </p>
-            </div>
+            <HouseAmenities/>
           </div>
         </section>
 
@@ -126,15 +121,10 @@ export default function Home() {
                 naturaleza, lejos del ruido y el estrés de lo cotidiano.
               </p>
               <p className="text-lg text-[#264653] leading-relaxed mb-6">
-                Nuestras cabañas, en este hermoso entorno, están pensadas para
-                que encuentres un lugar donde puedas relajarte y disfrutar de
-                verdad. Nos encanta cuidar de cada detalle para que, cuando
-                estés acá, no tengas que preocuparte por nada más que por
-                disfrutar.
+              Nuestras cabañas están pensadas para que realmente puedas desconectarte, relajarte y disfrutar. Cuidamos cada detalle para que no tengas que preocuparte por nada más que por pasarla bien.
               </p>
               <p className="text-lg text-[#264653] leading-relaxed mb-6">
-                Nuestra misión es que te sientas como en casa, pero rodeado de
-                paisajes increíbles, aire fresco y tranquilidad. Ya sea que
+                Sentite como en casa, pero rodeado de montañas y cielos únicos, aire fresco y tranquilidad. Ya sea que
                 vengas solo, en pareja o en familia, nuestro compromiso es que
                 te lleves buenos recuerdos, descanses a tu ritmo y encuentres un
                 espacio para reconectar con la naturaleza y con vos mismo.
