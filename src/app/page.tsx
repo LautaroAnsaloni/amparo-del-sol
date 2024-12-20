@@ -1,10 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
 import CabinAmenities from "../components/ui/cabin-amenities";
-import HouseAmenities from "../components/ui/house-amenities"
+import HouseAmenities from "../components/ui/house-amenities";
 import Footer from "../components/ui/footer";
 import Navbar from "@/components/ui/navbar";
 import CabinCarousel from "@/components/CabinCarousel";
@@ -39,22 +40,21 @@ export default function Home() {
   return (
     <main className="flex-grow overflow-x-hidden">
       <SpeedInsights />
-      <Analytics/>
+      <Analytics />
       <div className="flex flex-col min-h-screen font-lato">
         <Navbar />
         <section
           className="relative flex items-center justify-center overflow-hidden"
           style={{ height: "calc(100vh - 5rem)" }}
         >
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute w-full h-full object-cover"
-          >
-            <source src="/PanoramicaLosReyunos.mp4" type="video/mp4" />
-          </video>
+          <Image
+            src="/CapturaClipLosReyunos.png"
+            alt="Vista de las montañas"
+            layout="fill"
+            objectFit="cover"
+            quality={100}
+            priority
+          ></Image>
           <div className="relative z-10 text-center flex flex-col items-center">
             <div className="relative px-4 py-2 mb-2">
               <span className="relative z-10 text-xl md:text-2xl font-semibold text-transform: uppercase text-white">
@@ -106,7 +106,7 @@ export default function Home() {
             <div className="grid mx-8">
               <HouseCarousel />
             </div>
-            <HouseAmenities/>
+            <HouseAmenities />
           </div>
         </section>
 
@@ -121,13 +121,16 @@ export default function Home() {
                 naturaleza, lejos del ruido y el estrés de lo cotidiano.
               </p>
               <p className="text-lg text-[#264653] leading-relaxed mb-6">
-              Nuestras cabañas están pensadas para que realmente puedas desconectarte, relajarte y disfrutar. Cuidamos cada detalle para que no tengas que preocuparte por nada más que por pasarla bien.
+                Nuestras cabañas están pensadas para que realmente puedas
+                desconectarte, relajarte y disfrutar. Cuidamos cada detalle para
+                que no tengas que preocuparte por nada más que por pasarla bien.
               </p>
               <p className="text-lg text-[#264653] leading-relaxed mb-6">
-                Sentite como en casa, pero rodeado de montañas y cielos únicos, aire fresco y tranquilidad. Ya sea que
-                vengas solo, en pareja o en familia, nuestro compromiso es que
-                te lleves buenos recuerdos, descanses a tu ritmo y encuentres un
-                espacio para reconectar con la naturaleza y con vos mismo.
+                Sentite como en casa, pero rodeado de montañas y cielos únicos,
+                aire fresco y tranquilidad. Ya sea que vengas solo, en pareja o
+                en familia, nuestro compromiso es que te lleves buenos
+                recuerdos, descanses a tu ritmo y encuentres un espacio para
+                reconectar con la naturaleza y con vos mismo.
               </p>
             </div>
           </div>
