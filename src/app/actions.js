@@ -15,7 +15,7 @@ const formSchema = z.object({
     message: "El mensaje debe tener al menos 10 caracteres.",
   }),
 });
-const port = process.env.SMTP_PORT || "587";
+const port = process.env.NEXT_PUBLIC_SMTP_PORT || "587";
 export async function enviarFormulario(data) {
   const result = formSchema.safeParse(data);
   if (!result.success) {
@@ -26,18 +26,18 @@ export async function enviarFormulario(data) {
     };
   }
   const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
+    host: process.env.NEXT_PUBLIC_SMTP_HOST,
     port: parseInt(port, 10), 
     secure: port === "465", 
     auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
+      user: process.env.NEXT_PUBLIC_SMTP_USER,
+      pass: process.env.NEXT_PUBLIC_SMTP_PASS,
     },
   });
   try {
     await transporter.sendMail({
-      from: process.env.SMTP_USER,
-      to: process.env.SMTP_USER, // Ajusta esta dirección según sea necesario
+      from: process.env.NEXT_PUBLIC_SMTP_USER,
+      to: process.env.NEXT_PUBLIC_SMTP_USER, // Ajusta esta dirección según sea necesario
       subject: "Consulta desde el formulario de contacto",
       text: `Nombre: ${data.nombre}\nEmail: ${data.email}\nCelular: ${data.celular}\nMensaje: ${data.mensaje}`,
     });
