@@ -53,4 +53,4 @@ export async function enviarFormulario(data) {
     };
   }
 }
-export { enviarFormulario };
+module.exports = { enviarFormulario };
