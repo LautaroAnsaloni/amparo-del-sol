@@ -1,7 +1,6 @@
-'use server'
-
-import { z } from 'zod'
-
+"use server";
+import { z } from 'zod'; // Cambiado a 'zod' como módulo
+import nodemailer from 'nodemailer'; // Usar 'import' en lugar de 'require'
 const formSchema = z.object({
   nombre: z.string().min(2, {
     message: "El nombre debe tener al menos 2 caracteres.",
@@ -15,28 +14,43 @@ const formSchema = z.object({
   mensaje: z.string().min(10, {
     message: "El mensaje debe tener al menos 10 caracteres.",
   }),
-})
-
-export async function enviarFormulario(data: z.infer<typeof formSchema>) {
-  const result = formSchema.safeParse(data)
-
+});
+const port = process.env.NEXT_PUBLIC_SMTP_PORT || "587";
+export async function enviarFormulario(data) {
+  const result = formSchema.safeParse(data);
   if (!result.success) {
     return {
       success: false,
-      message: 'Falló la validación del formulario.',
+      message: "Falló la validación del formulario.",
       errors: result.error.flatten().fieldErrors,
-    }
+    };
   }
-
-  // Aquí iría la lógica para enviar el correo electrónico o guardar en la base de datos
-  // Por ejemplo, podrías usar una API de envío de correos como SendGrid o Mailgun
-  
-  // Simulamos un retraso para demostrar el estado de carga
-  await new Promise(resolve => setTimeout(resolve, 2000))
-
-  // Simulamos una respuesta exitosa
-  return {
-    success: true,
-    message: 'Formulario enviado con éxito.',
+  const transporter = nodemailer.createTransport({
+    host: process.env.NEXT_PUBLIC_SMTP_HOST,
+    port: parseInt(port, 10), 
+    secure: port === "465", 
+    auth: {
+      user: process.env.NEXT_PUBLIC_SMTP_USER,
+      pass: process.env.NEXT_PUBLIC_SMTP_PASS,
+    },
+  });
+  try {
+    await transporter.sendMail({
+      from: process.env.NEXT_PUBLIC_SMTP_USER,
+      to: process.env.NEXT_PUBLIC_SMTP_USER, // Ajusta esta dirección según sea necesario
+      subject: "Consulta desde el formulario de contacto",
+      text: `Nombre: ${data.nombre}\nEmail: ${data.email}\nCelular: ${data.celular}\nMensaje: ${data.mensaje}`,
+    });
+    return {
+      success: true,
+      message: "Formulario enviado con éxito.",
+    };
+  } catch (error) {
+    console.error("Error al enviar el correo:", error);
+    return {
+      success: false,
+      message: "Error al enviar el formulario.",
+    };
   }
 }
+module.exports = { enviarFormulario };
